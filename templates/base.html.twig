@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Rencontre-moi</title>
+		<link
+		rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/cdb85cab25.js" crossorigin="anonymous"></script>
+		
+		<!-- Custom styles for this template -->
+		<link href="css/the-big-picture.css" rel="stylesheet">
+		{% block head %}{% endblock %}
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+			<div class="container">
+				<a class="navbar-brand" href="{{ path('home') }}">
+					<img src="./res/brand-logo.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="">
+					{% if app.user %}
+						Bienvenue
+						{{ app.user.name }}
+						!
+					{% else %}
+						Bienvenue sur Rencontre-moi !
+					{% endif %}
+				</a>
+				<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="oi oi-menu"></span>
+					Menu
+				</button>
+
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav nav ml-auto">
+						<li class="nav-item">
+							<a href="{{ path('home') }}" class="nav-link">
+								<span>Accueil</span>
+							</a>
+						</li>
+						{% if app.user %}
+							<li class="nav-item">
+								<a href="{{ path('modification_profil') }}" class="nav-link">
+									<span>Mon Profil</span>
+								</a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a href="{{ path('inscription') }}" class="nav-link">
+									<span>S'inscrire</span>
+								</a>
+							</li>
+						{% endif %}
+						{% if app.user %}
+							<li class="nav-item">
+								<a href="{{ path('list') }}" class="nav-link">
+									<span>Découvrir</span>
+								</a>
+							</li>
+						{% endif %}
+						<li class="nav-item">
+							{% if app.user %}
+								<a href="{{ path('app_logout') }}" class="btn btn-outline-primary">Déconnection</a>
+							{% else %}
+								<a href="{{ path('app_login') }}" class="btn btn-outline-primary">Se connecter</a>
+							{% endif %}
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="content"> {% block content %}{% endblock %}
+			</div>
+		</body>
+	</html>

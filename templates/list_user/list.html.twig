@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+    <link href="css/profil-card.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h3>Liste des membres</h3>
+        {% if app.request.query.get("filter") %}
+        <a href="{{ path('list') }}" class="btn btn-outline-primary">
+            <i>Voir tout les profils</i>
+        </a>
+        {% else %}
+        <a href="{{ path('list') }}?filter=preference" class="btn btn-outline-primary">
+            <i>Trier en fonction des préférences</i>
+        </a>   
+        {% endif %}       
+    </diV>
+    <div class="card-deck justify-content-center">
+        {% for user in users %}
+        <div class="col-md-4 mb-5">
+                <div class="card profile-card-2">
+                    <div class="card-body pt-5">
+                        {% if user.getProfilPicture() %}
+                            <img src={{ user.getProfilPicture() }} alt="profile-image" class="profile"/>
+                        {% endif %}
+                        <h4 class="card-title">{{ user.getName() }}</h4>
+                        <h6>{{ date('now').diff(user.getBirth()).format('%y ans') }}</h6>
+                        <p class="card-text">{{ user.getDescription() }}</p>
+
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ path('profil') }}?id={{ user.getId() }}" class="btn btn-outline-primary">
+                                Découvrir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
