@@ -1,0 +1,57 @@
+<!-- Page Content -->
+<section id="home">
+	<div class="bg"></div>
+	<img src="./res/logo_meet.png" class="bg-image" alt="Italian Trulli" hidden>
+	<img src="./res/rencontre-logo.png" class="logo" alt="Italian Trulli">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col text-center">
+				<h2>{{ form_label(form.sex) }}</h2>
+				{{ form_widget(form.sex, { 'attr': { 'class': 'm-5 form-primary big-btn' } }) }}
+			</div>
+			<div class="col text-center">
+				<h2>{{ form_label(form.preference) }}</h2>
+				{{ form_widget(form.preference, { 'attr': { 'class': 'm-5 form-secondary big-btn' } }) }}
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		{{ form_row(form.Submit, { 'attr': { 'class': 'btn-outline-primary' } }) }}
+	</div>
+</section>
+<section id="contact">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="card m-5" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+			<div class="card m-5" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+			<div class="card m-5" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+			<div class="container">
+				<h1>Rencontre moi !</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus efficitur libero sed erat sagittis maximus.																											            nisi ipsum, sit amet condimentum diam elementum non.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	{% if app.user %}
+		<section id="home">
+			<div class="bg"></div>
+			<img src="./res/logo_meet.png" class="bg-image" alt="Italian Trulli" hidden>
+			<img src="./res/rencontre-logo.png" class="logo" alt="Italian Trulli">
+			<div class="container text-center">
+				<h1 class="m-5">Bienvenue
+					{{ app.user.getName() }}
+				</h1>
+				<h5>
+					Pour découvrir les utilisateurs de Rencontre-moi</br>
+					<a href="{{ path('list') }}" class="btn btn-outline-primary m-2">
+						<span>Cliquez ici</span>
+					</a>
+				</h5>
+			</div>
+		</section>
+	{% else %}
+		{% include 'home.html.twig' %}
+	{% endif %}
+{% endblock %}
