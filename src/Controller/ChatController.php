@@ -22,14 +22,16 @@ class ChatController extends AbstractController
           $receiver=$this->getDoctrine()
               ->getRepository(User::class)
               ->findOneById($receiver_id);
-
-          $messages=$this->getDoctrine()
-            ->getRepository(Messages::class)
-            ->getMessages($user->getId(),$receiver_id);
-          return $this->render('chat/index.html.twig', [
-              'messages' => $messages,
-              'receiver' => $receiver
-          ]);
+          if($isFriend = (in_array( $receiver,$user->getFriends()->toArray()))){
+            $messages=$this->getDoctrine()
+              ->getRepository(Messages::class)
+              ->getMessages($user->getId(),$receiver_id);
+            return $this->render('chat/index.html.twig', [
+                'messages' => $messages,
+                'receiver' => $receiver
+            ]);
+          }
+          return new Response("Vous devez être amis pour communiquer !!!");
         }
         return new Response("Error on ID");
     }

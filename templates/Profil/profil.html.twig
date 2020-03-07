@@ -36,7 +36,7 @@
 										</form>
 									</div>
 									<div class="col-3">
-										<form action="{{ path('chat') }}" method="post">
+										<form action="{{ path('chat') }}?id={{user.getId()}}" method="post">
 											<input type="submit" class="btn-outline-primary btn m-2" name="id" value="Messages"/>
 										</form>
 									</div>

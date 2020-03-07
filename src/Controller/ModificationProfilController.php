@@ -26,7 +26,7 @@ class ModificationProfilController extends AbstractController
         $hobbi->setCategories($categorie);
 
         $entityManager->persist($hobbi);
-        
+
         $entityManager->flush();
     }
 
@@ -63,12 +63,12 @@ class ModificationProfilController extends AbstractController
         if (isset($action)) { //une modification a eu lieu
             $entityManager = $this->getDoctrine()->getManager();
 
-            foreach ($all_categories as $categorie) { //changement dans une des catégories       
+            foreach ($all_categories as $categorie) { //changement dans une des catégories
                 if ($action == "remove_".$categorie->getName()) { // suppresion d'une donnée
                     $hobbi = $this->getDoctrine()
                         ->getRepository(Hobbis::class)
                         ->findOneByName($request->request->get('_name'));
-                    $this->deleteHobbi($hobbi);      
+                    $this->deleteHobbi($hobbi);
                 } else if ($action == "add_".$categorie->getName()) { //ajout d'une donnée
                     $this->createHobbi($request->request->get('_name'),$categorie,$user);
                 }

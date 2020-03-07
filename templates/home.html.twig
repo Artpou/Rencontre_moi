@@ -1,23 +1,12 @@
 <!-- Page Content -->
 <section id="home">
 	<div class="bg"></div>
-	<img src="./res/logo_meet.png" class="bg-image" alt="Italian Trulli" hidden>
-	<img src="./res/rencontre-logo.png" class="logo" alt="Italian Trulli">
-	<div class="container-fluid">
-		<div class="row align-items-center">
-			<div class="col text-center">
-				<h2>{{ form_label(form.sex) }}</h2>
-				{{ form_widget(form.sex, { 'attr': { 'class': 'm-5 form-primary big-btn' } }) }}
+	<img class="img-main" src="./res/logo_meet.png" class="logo" alt="Italian Trulli">
+	<form action="{{ path('inscription') }}" method="post">
+			<div class="row justify-content-center">
+				{{ form_row(form.Submit, { 'attr': { 'class': 'btn-outline-primary' } }) }}
 			</div>
-			<div class="col text-center">
-				<h2>{{ form_label(form.preference) }}</h2>
-				{{ form_widget(form.preference, { 'attr': { 'class': 'm-5 form-secondary big-btn' } }) }}
-			</div>
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		{{ form_row(form.Submit, { 'attr': { 'class': 'btn-outline-primary' } }) }}
-	</div>
+</form>
 </section>
 <section id="contact">
 	<div class="container-fluid">

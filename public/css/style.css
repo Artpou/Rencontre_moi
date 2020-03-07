@@ -1,6 +1,15 @@
 a .material-icons {
     vertical-align: middle;
 }
+
+.img-main{
+  margin: auto;
+      display: block;
+      margin-left: 35.9%;
+      width: 30%;
+      margin-bottom: 2em;
+}
+
 scroll-container {
   display: block;
   max-width: 100%;
