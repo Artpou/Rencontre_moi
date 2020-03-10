@@ -23,11 +23,11 @@ class InscriptionController extends AbstractController
         $form = $this->createForm(UserFormType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $task = $form->getData();
             //cryptage du mot de passe
+            
             $passwordEncoded = password_hash($user->getPassword(), PASSWORD_DEFAULT);
- 
             $user->setPassword($passwordEncoded);            
 
             $entityManager = $this->getDoctrine()->getManager();
