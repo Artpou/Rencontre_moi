@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Sex;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -21,7 +22,7 @@ class UserFormType extends UserFirstFormType
             ->add('forename' ,null ,['label' => 'Prénom'])
             ->add('name' ,null ,['label' => 'Nom'])
             ->add('mail',EmailType::class ,['label' => 'Mail'])
-            ->add('birth',DateType::class ,['label' => 'Date de naissance'])
+            ->add('birth',BirthdayType::class ,['label' => 'Date de naissance'])
             ->add('password',PasswordType::class ,['label' => 'Mot de passe'])
             ->add('places',IntegerType::class ,['label' => 'Code postal'])
         ;

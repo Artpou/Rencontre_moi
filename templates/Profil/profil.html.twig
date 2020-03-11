@@ -85,14 +85,16 @@
 						<div class="col-md-9 mb-5">
 							<div class="card-deck">
 								{% for name, hobbis in categories %}
-									<div class="card mb-2 text-center">
-										<div class="card-body">
-											<h3 class="card-title text-center">{{ name }}</h3>
-											<ul>
-												{% for hobbi in hobbis %}
-													<li>{{ hobbi.getName() }}</li>
-												{% endfor %}
-											</ul>
+									<div class="col-md-4"/>
+										<div class="card mb-2 text-center">
+											<div class="card-body">
+												<h3 class="card-title text-center">{{ name }}</h3>
+												<ul>
+													{% for hobbi in hobbis %}
+														<li>{{ hobbi.getName() }}</li>
+													{% endfor %}
+												</ul>
+											</div>
 										</div>
 									</div>
 								{% endfor %}
